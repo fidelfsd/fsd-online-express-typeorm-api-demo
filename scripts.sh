@@ -11,6 +11,8 @@ npm i -D @types/express
 npm i cors
 npm i -D @types/cors
 npm i -D nodemon
+npm i -D @faker-js/faker
+
 
 # TypeORM
 npm i typeorm reflect-metadata mysql2

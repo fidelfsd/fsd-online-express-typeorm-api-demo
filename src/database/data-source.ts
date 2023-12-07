@@ -1,6 +1,5 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
-import { CreateUser1701807025522 } from "./migrations/1701807025522-CreateUser";
 
 // -----------------------------------------------------------------------------
 
@@ -11,8 +10,21 @@ export const AppDataSource = new DataSource({
    username: "root",
    password: "root",
    database: "typeorm",
-   entities: [],
-   migrations: [CreateUser1701807025522],
+   // entities: ["src/models/*.ts"],
+   entities: [`${__dirname}/../models/**/*{.js,.ts}`],
+   // migrations: ["src/migrations/*.ts"],
+   migrations: [`${__dirname}/database/migrations/**/*{.js,.ts}`],
    synchronize: false,
    logging: false,
 });
+
+//  src/models/**/*.ts
+
+// - src
+//   - models
+//     - entity1.ts
+//     - entity2.ts
+//   - other
+//     - nested
+//       - models
+//         - entity3.ts
