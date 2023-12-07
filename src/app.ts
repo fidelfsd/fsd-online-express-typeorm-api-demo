@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-import { User } from "./models/User";
+import router from "./router";
 
 // -----------------------------------------------------------------------------
 
@@ -9,9 +9,7 @@ const app: Application = express();
 app.use(express.json());
 
 // Rutas
-app.get("/api/users", async (req, res) => {
-   const allUsers = await User.find();
-   res.json(allUsers);
-});
+app.use(router)
+
 
 export default app;
