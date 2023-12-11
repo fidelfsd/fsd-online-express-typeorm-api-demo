@@ -9,7 +9,8 @@ export const userSeeder = async () => {
       const users = UserFactory.create(100);
       console.log("Seedeing users completed successfully");
 
-      await User.save(users);
+      const userRepository = AppDataSource.getRepository(User);
+      await userRepository.save(users);
    } catch (error) {
       console.error("Error seeding the database", error);
    } finally {
