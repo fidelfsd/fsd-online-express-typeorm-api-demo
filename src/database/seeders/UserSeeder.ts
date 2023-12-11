@@ -6,7 +6,7 @@ export const userSeeder = async () => {
    try {
       await AppDataSource.initialize();
 
-      const users = UserFactory.create(100);
+      const users = UserFactory.create(10);
       console.log("Seedeing users completed successfully");
 
       const userRepository = AppDataSource.getRepository(User);
