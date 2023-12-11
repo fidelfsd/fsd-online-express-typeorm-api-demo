@@ -37,4 +37,19 @@ export class UserController implements Controller {
          });
       }
    }
+   async delete(req: Request, res: Response): Promise<void | Response<any>> {
+      try {
+         const id = +req.params.id;
+
+         await User.delete(id);
+
+         res.status(200).json({
+            message: "User successfully deleted",
+         });
+      } catch (error) {
+         res.status(500).json({
+            message: "Error while getting user",
+         });
+      }
+   }
 }
